@@ -13,7 +13,7 @@ spring:
     oauth2:
       authorizationserver:
         client:
-          oidc-client:
+          bff_server:
             registration:
               client-id: "client"
               client-secret: "{noop}secret"
@@ -23,7 +23,7 @@ spring:
                 - "authorization_code"
                 - "refresh_token"
               redirect-uris:
-                - "http://localhost:8080"
+                - "http://anotherlocalhost.com:8081/oauth2/authorization/bff_server"
               scopes:
                 - "openid"
                 - "profile"
