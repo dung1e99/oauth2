@@ -13,7 +13,7 @@ spring:
     oauth2:
       authorizationserver:
         client:
-          client:
+          bff:
             registration:
               client-id: "client"
               client-secret: "{noop}secret"
@@ -23,7 +23,7 @@ spring:
                 - "authorization_code"
                 - "refresh_token"
               redirect-uris:
-                - "http://lvh.me:8081/oauth2/code/bff"
+                - "http://lvh.me:8081/login/oauth2/code/bff"
                 - "http://lvh.me:8081/authorize"
               scopes:
                 - "openid"
