@@ -8,6 +8,6 @@ public class ResourceServerController {
 
     @GetMapping
     public String hello() {
-        return "Hello World";
+        return "This is a resource server controller";
     }
 }
