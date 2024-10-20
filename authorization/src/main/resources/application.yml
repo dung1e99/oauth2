@@ -17,7 +17,8 @@ spring:
             registration:
               client-id: "client"
               client-secret: "{noop}secret"
-              client-authentication-methods: "client_secret_basic"
+              client-authentication-methods:
+                - "client_secret_basic"
               authorization-grant-types:
                 - "authorization_code"
                 - "refresh_token"
