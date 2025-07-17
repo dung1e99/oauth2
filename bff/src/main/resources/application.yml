@@ -4,6 +4,8 @@ server:
 logging:
   level:
     org.springframework.security.oauth2: trace
+    org.springframework.security.oauth2.client: DEBUG
+    org.springframework.web.reactive.function.client.ExchangeFunction: DEBUG
 
 spring:
   security:

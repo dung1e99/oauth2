@@ -9,7 +9,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/hello")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class BffController {
 
@@ -18,7 +18,7 @@ public class BffController {
     @GetMapping
     public Mono<ResponseEntity<String>> hello() {
         return webClient.get()
-                .uri("http://localhost:8080/hello")
+                .uri("http://localhost:8080/api/entity-manager/v1/entities")
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .toEntity(String.class);
