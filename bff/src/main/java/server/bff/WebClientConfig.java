@@ -19,8 +19,7 @@ public class WebClientConfig {
             OAuth2AuthorizedClientRepository authorizedClientRepository) {
 
         var authorizedClientProvider = OAuth2AuthorizedClientProviderBuilder.builder()
-                .authorizationCode()
-                .refreshToken()
+                .clientCredentials()
                 .build();
 
         var authorizedClientManager = new DefaultOAuth2AuthorizedClientManager(
@@ -41,7 +40,6 @@ public class WebClientConfig {
     public WebClient webClient(ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2Client) {
 
         oauth2Client.setDefaultOAuth2AuthorizedClient(true);
-
         return WebClient.builder()
                 .apply(oauth2Client.oauth2Configuration())
                 .build();
