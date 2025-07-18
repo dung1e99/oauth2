@@ -1,4 +1,4 @@
-package server.bff;
+package server.bff.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +27,7 @@ public class WebClientConfig {
                 clientRegistrationRepository, authorizedClientRepository);
         authorizedClientManager.setAuthorizedClientProvider(authorizedClientProvider);
 
-        return authorizedClientManager;
+        return new LockingAuthorizedClientManager(authorizedClientManager);
     }
 
     @Bean
