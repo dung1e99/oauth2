@@ -7,13 +7,14 @@ import org.springframework.security.oauth2.core.endpoint.OAuth2AccessTokenRespon
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class LockingRefreshTokenResponseClient implements
         OAuth2AccessTokenResponseClient<OAuth2RefreshTokenGrantRequest> {
 
     private final OAuth2AccessTokenResponseClient<OAuth2RefreshTokenGrantRequest> delegate;
-    private final ConcurrentMap<String, ReentrantLock> reentrantLockMap;
+    private final ConcurrentMap<String, Lock> reentrantLockMap;
 
     public LockingRefreshTokenResponseClient(
             OAuth2AccessTokenResponseClient<OAuth2RefreshTokenGrantRequest> delegate) {
